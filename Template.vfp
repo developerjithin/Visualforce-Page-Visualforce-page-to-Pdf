@@ -1,0 +1,95 @@
+<apex:page readOnly="true"
+           standardController="Appointment__c"   
+           applyHtmlTag="false"    
+           sidebar="false"    
+           showHeader="false"    
+           cache="true"    
+           renderas="pdf"
+           docType="html-5.0">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />    
+        <style type="text/css" media="print">
+            @page {
+            size: A4 potrait;    
+            border: 2px solid black;    
+            padding-left: 5px;    
+            padding-right: 5px;      
+            }
+            th {  
+            font-weight: bold;
+            text-align: center;
+            background-color: #1A3F41;
+            color: white;
+            padding: 8px;
+            }
+            td {    
+            font-size: 15px;
+            text-align: left;
+            color: black;
+            padding: 8px;
+            }
+            table{
+            border-collapse: collapse;
+            }
+            table, th, td {
+            border: 2px solid black;
+            }
+            .header {
+            padding: 10px;
+            text-align: center;
+            background-image: url("{!$Resource.newheader}");
+            color: white;
+            font-size: 30px;
+            }
+            .footer {
+            position:fixed;
+            left: 0;
+            bottom: 8px;
+            width: 100%;
+            background-image: url("{!$Resource.newfooter}");
+            color: white;
+            text-align: center;
+            }
+            h5 {
+            display:inline;
+            }
+        </style>    
+    </head>    
+    <center>    
+        <div class="header">
+            <h3>
+                &nbsp;&nbsp;&nbsp;&nbsp; HOSPITAL MANAGEMENT
+            </h3>
+        </div>   
+    </center><br/>
+<h5>Appointment Slip‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+</h5>
+    <h5>Date : <apex:outputText value="{0, date, d/MM/yyyy}">
+        <apex:param value="{!NOW()}" /> 
+        </apex:outputText><br/></h5>
+    <h4>
+        ‎ ‎ 
+    </h4>
+    <table width="100%">    
+        <tr>
+            <th>Appointment Number</th>    
+            <th>Appointment Date and Time</th>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+        </tr>      
+            <tr>            
+                <td style="text-align:center">{!Appointment__c.Name}</td>    
+                <td style="text-align:center">{!Appointment__c.Appointment_Date_and_Time__c}</td>
+                <td style="text-align:center"><apex:outputField value="{!Appointment__c.Patient_Name__c}"/></td>
+                <td style="text-align:center"><apex:outputField value="{!Appointment__c.Doctor_Name__c}"/></td>
+            </tr>     
+    </table> 
+    <div class="footer">
+            <h5>
+                HOSPITAL MANAGEMENT &nbsp;
+                Mobile : 0466-222-6589<br/>
+                Email : hospitalmanagement@gmail.com
+                Website : www.hospitalmanagement.com
+            </h5>
+        </div>
+</apex:page>
